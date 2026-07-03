@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Escaparate Digital · Webs para negocios locales</title>
+<meta name="description" content="Diseñamos y programamos páginas web a medida para peluquerías, restaurantes, clínicas y tiendas locales. Rápidas, optimizadas para Google y listas en días, no en meses."/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Google Analytics: no se activa hasta que el usuario acepta cookies (ver banner al final del body) -->
+<script>window.GA_MEASUREMENT_ID = 'G-282M4WVH0W';</script>
+
+<!-- Preconnect: adelanta la conexión a dominios externos para que carguen más rápido -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<link rel="canonical" href="https://www.escaparate-digital.es/"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230B0C10'/%3E%3Crect x='4' y='5' width='16' height='11' rx='1.5' fill='none' stroke='%2339E6B0' stroke-width='1.6'/%3E%3Cline x1='4' y1='8.5' x2='20' y2='8.5' stroke='%2339E6B0' stroke-width='1.4'/%3E%3Cline x1='7' y1='19' x2='17' y2='19' stroke='%238B5CF6' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"/>
+
+<!-- Open Graph (WhatsApp, Facebook, etc.) -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Escaparate Digital"/>
+<meta property="og:title" content="Escaparate Digital · Webs para negocios locales"/>
+<meta property="og:description" content="Diseñamos y programamos páginas web a medida para negocios locales. Rápidas, optimizadas para Google y listas en días."/>
+<meta property="og:url" content="https://www.escaparate-digital.es/"/>
+<meta property="og:locale" content="es_ES"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Escaparate Digital · Webs para negocios locales"/>
+<meta name="twitter:description" content="Diseño y desarrollo de páginas web a medida para negocios locales."/>
+
+<!-- Datos estructurados para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Escaparate Digital",
+  "description": "Diseño y desarrollo de páginas web a medida para negocios locales: peluquerías, restaurantes, clínicas, tiendas y más.",
+  "@id": "https://www.escaparate-digital.es/",
+  "url": "https://www.escaparate-digital.es/",
+  "telephone": "+34663543982",
+  "email": "gaby.prisecaru.trabajo@gmail.com",
+  "areaServed": "ES",
+  "priceRange": "€€",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Escaparate (una página)" }, "price": "100", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Negocio (multi-sección + SEO local)" }, "price": "200", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Reservas Pro (citas online + analítica)" }, "price": "300", "priceCurrency": "EUR" }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0B0C10;
+  --bg2:#111319;
+  --surface:#15171F;
+  --surface2:#1B1E29;
+  --ink:#F4F4F6;
+  --muted:#9598A6;
+  --muted2:#6B6E7C;
+  --border:rgba(255,255,255,.09);
+  --violet:#8B5CF6;
+  --violet2:#A78BFA;
+  --mint:#39E6B0;
+  --mint2:#22C99A;
+  --on-mint:#06231A;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.3);
+  --shadow:0 8px 30px rgba(0,0,0,.45);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.55);
+  --r:10px;
+  --r2:20px;
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{font-family:'Sora',sans-serif;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--mint);border-radius:4px}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mint);margin-bottom:16px;
+}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(57,230,176,.15)}
+
+.section-head{max-width:640px;margin:0 auto 56px;text-align:center}
+.section-head h2{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.15;margin-bottom:14px}
+.section-head p{color:var(--muted);font-size:17px}
+
+section{padding:110px 0}
+@media(max-width:768px){section{padding:72px 0}}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 28px;border-radius:999px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--mint);color:var(--on-mint);box-shadow:0 8px 24px rgba(57,230,176,.25)}
+.btn-primary:hover{background:var(--mint2);box-shadow:0 10px 30px rgba(57,230,176,.35);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--border)}
+.btn-ghost:hover{background:var(--surface2);border-color:rgba(255,255,255,.2)}
+.btn-block{width:100%}
+
+/* ─────────────────────────────
+   NAV
+───────────────────────────── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;background:rgba(11,12,16,0);backdrop-filter:blur(0px);
+  transition:background .35s,backdrop-filter .35s,box-shadow .35s,border-color .35s;
+  border-bottom:1px solid transparent;
+}
+#nav.scrolled{background:rgba(11,12,16,.85);backdrop-filter:blur(16px);border-color:var(--border);box-shadow:var(--shadow-sm)}
+
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:19px;color:var(--ink)}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--violet),var(--mint));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark svg{width:18px;height:18px}
+.logo span{color:var(--mint)}
+
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-cta .btn{padding:11px 22px;font-size:14px}
+
+.ham{display:none;flex-direction:column;gap:5px;width:26px;cursor:pointer;background:none;border:none;z-index:1000}
+.ham span{height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-nav{
+  position:fixed;top:0;right:-100%;width:78%;max-width:340px;height:100vh;z-index:950;
+  background:var(--bg2);border-left:1px solid var(--border);
+  display:flex;flex-direction:column;gap:6px;padding:100px 32px 32px;
+  transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:var(--shadow-lg);
+}
+.mobile-nav.open{right:0}
+.mobile-nav a{font-size:19px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--border);color:var(--ink)}
+.mobile-nav .btn{margin-top:24px}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-cta .btn-ghost,.nav-cta .btn-primary{display:none}
+  .ham{display:flex}
+}
+
+/* ─────────────────────────────
+   HERO
+───────────────────────────── */
+#hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 0 90px;
+  background:
+    radial-gradient(650px circle at 15% 15%,rgba(139,92,246,.18),transparent 60%),
+    radial-gradient(700px circle at 85% 30%,rgba(57,230,176,.14),transparent 60%),
+    var(--bg);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:56px}}
+
+.hero-copy h1{font-size:clamp(36px,5.4vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px}
+.hero-copy h1 em{font-style:normal;background:linear-gradient(90deg,var(--mint),var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p.lead{font-size:18px;color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:var(--ink)}
+.hero-stats div span{font-size:13px;color:var(--muted2)}
+
+/* browser mockup */
+.browser-mock{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#000;box-shadow:var(--shadow-lg);transform:rotate(1deg)}
+.browser-bar{height:34px;background:#1b1e29;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--border)}
+.browser-dot{width:9px;height:9px;border-radius:50%}
+.browser-url{margin-left:10px;background:#0f1015;border-radius:6px;padding:5px 12px;font-size:11.5px;color:var(--muted);flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:monospace}
+.browser-frame-wrap{position:relative;width:100%;padding-top:64%;overflow:hidden;background:#F8F6F3}
+.browser-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:var(--muted2)}
+.browser-caption a{color:var(--mint);font-weight:600}
+
+/* Maqueta estática (no un iframe en vivo): así la web de la agencia no carga
+   por duplicado las fuentes, imágenes y el script de Cal.com de la web de ejemplo */
+.mock-preview{position:absolute;inset:0;padding:6%;display:flex;flex-direction:column;gap:6%;font-family:'Playfair Display',serif}
+.mock-nav{display:flex;justify-content:space-between;align-items:center}
+.mock-nav b{color:#1B3A6B;font-size:1.1em}
+.mock-nav span{width:60%;height:8px;border-radius:4px;background:#1B3A6B;opacity:.15}
+.mock-hero{flex:1;border-radius:8px;background:linear-gradient(135deg,#1B3A6B,#254E96);display:flex;flex-direction:column;justify-content:center;padding:8%;gap:10px}
+.mock-hero i{display:block;height:14px;border-radius:4px;background:rgba(255,255,255,.9);width:70%}
+.mock-hero i:nth-child(2){width:45%;background:rgba(255,255,255,.6)}
+.mock-hero em{display:inline-block;margin-top:6px;width:34%;height:20px;border-radius:999px;background:#C41C00;font-style:normal}
+
+/* ─────────────────────────────
+   TRUST BAR
+───────────────────────────── */
+#trust{padding:36px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:40px}
+.trust-row div{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--muted);font-weight:500}
+.trust-row svg{width:18px;height:18px;color:var(--mint);flex-shrink:0}
+
+/* ─────────────────────────────
+   SERVICIOS
+───────────────────────────── */
+.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:960px){.cards-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards-4{grid-template-columns:1fr}}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);
+  padding:30px 26px;transition:transform .3s,border-color .3s,background .3s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18);background:var(--surface2)}
+.card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.card-icon svg{width:22px;height:22px}
+.card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--muted)}
+
+.icon-violet{background:rgba(139,92,246,.14);color:var(--violet2)}
+.icon-mint{background:rgba(57,230,176,.14);color:var(--mint)}
+
+/* ─────────────────────────────
+   PRECIOS
+───────────────────────────── */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
+.plan{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);
+  padding:36px 30px;display:flex;flex-direction:column;position:relative;
+}
+.plan.featured{border-color:var(--mint);background:linear-gradient(180deg,rgba(57,230,176,.07),var(--surface) 30%);box-shadow:0 0 0 1px rgba(57,230,176,.25),var(--shadow)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--mint);color:var(--on-mint);font-size:12px;font-weight:700;padding:5px 16px;border-radius:999px;letter-spacing:.02em}
+.plan h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.plan .plan-desc{font-size:13.5px;color:var(--muted2);margin-bottom:22px;min-height:36px}
+.plan .price{font-family:'Sora',sans-serif;font-size:40px;font-weight:800;margin-bottom:4px}
+.plan .price span{font-size:15px;color:var(--muted);font-weight:500}
+.plan .price-note{font-size:12.5px;color:var(--muted2);margin-bottom:26px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:30px;flex:1}
+.plan li{display:flex;gap:10px;font-size:14px;color:var(--muted)}
+.plan li svg{width:17px;height:17px;color:var(--mint);flex-shrink:0;margin-top:2px}
+
+.pricing-note{text-align:center;color:var(--muted2);font-size:13.5px;margin-top:34px}
+
+/* ─────────────────────────────
+   PROCESO
+───────────────────────────── */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+@media(max-width:900px){.process-grid{grid-template-columns:1fr;gap:36px}}
+.process-step{position:relative;padding:0 22px;text-align:left}
+.process-step:first-child{padding-left:0}
+.process-step:last-child{padding-right:0}
+.process-num{font-family:'Sora',sans-serif;font-size:15px;font-weight:800;color:var(--on-mint);background:var(--mint);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.process-step h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.process-step p{font-size:14px;color:var(--muted)}
+.process-line{display:none}
+@media(min-width:901px){
+  .process-step:not(:last-child)::after{content:'';position:absolute;top:19px;left:calc(100% - 22px + 19px);width:calc(100% - 16px);height:1px;background:linear-gradient(90deg,var(--mint),transparent)}
+}
+
+/* ─────────────────────────────
+   PORTFOLIO
+───────────────────────────── */
+.portfolio-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:44px}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr;padding:28px}}
+.portfolio-copy .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--violet2);background:rgba(139,92,246,.14);padding:5px 14px;border-radius:999px;margin-bottom:16px}
+.portfolio-copy h3{font-size:26px;font-weight:800;margin-bottom:12px}
+.portfolio-copy p{color:var(--muted);margin-bottom:22px}
+.portfolio-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
+.portfolio-feats li{display:flex;gap:10px;font-size:14.5px;color:var(--muted)}
+.portfolio-feats li svg{width:17px;height:17px;color:var(--mint);flex-shrink:0;margin-top:2px}
+
+.soon-card{border:1px dashed var(--border);border-radius:var(--r2);padding:40px 26px;text-align:center;color:var(--muted2);margin-top:24px}
+.soon-card b{color:var(--muted);display:block;margin-bottom:6px}
+
+/* ─────────────────────────────
+   FAQ
+───────────────────────────── */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px;cursor:pointer;font-weight:600;font-size:16px}
+.faq-q svg{width:20px;height:20px;color:var(--mint);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 4px 22px;color:var(--muted);font-size:14.5px;max-width:640px}
+
+/* ─────────────────────────────
+   CONTACTO
+───────────────────────────── */
+#contacto{background:var(--bg2);border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+
+.contact-info h2{font-size:clamp(26px,3.6vw,36px);font-weight:800;margin-bottom:16px}
+.contact-info p{color:var(--muted);margin-bottom:30px}
+.contact-methods{display:flex;flex-direction:column;gap:16px}
+.contact-method{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:border-color .2s,transform .2s}
+.contact-method:hover{border-color:rgba(255,255,255,.2);transform:translateX(4px)}
+.contact-method .ci{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-method .ci svg{width:20px;height:20px}
+.contact-method b{display:block;font-size:14px}
+.contact-method span{font-size:13px;color:var(--muted2)}
+
+.form-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:13px 14px;color:var(--ink);font-family:inherit;font-size:14.5px;transition:border-color .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--mint)}
+.field textarea{resize:vertical;min-height:100px}
+.form-note{font-size:12.5px;color:var(--muted2);margin-top:14px;text-align:center}
+
+/* ─────────────────────────────
+   FOOTER
+───────────────────────────── */
+footer{padding:50px 0 30px;border-top:1px solid var(--border)}
+.footer-row{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;margin-bottom:30px}
+.footer-links{display:flex;gap:26px;flex-wrap:wrap}
+.footer-links a,.footer-legal a{font-size:13.5px;color:var(--muted2);transition:color .2s}
+.footer-links a:hover,.footer-legal a:hover{color:var(--mint)}
+.footer-legal{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted2)}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--muted2);font-size:12.5px;border-top:1px solid var(--border);padding-top:24px}
+
+/* ─────────────────────────────
+   FLOATING WHATSAPP + BACK TO TOP
+───────────────────────────── */
+.float-btn{
+  position:fixed;right:24px;z-index:800;width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+  transition:transform .25s,opacity .25s;
+}
+.float-btn:hover{transform:scale(1.08)}
+#wa-float{bottom:24px;background:var(--mint);color:var(--on-mint)}
+#wa-float svg{width:26px;height:26px}
+#top-float{bottom:92px;background:var(--surface2);border:1px solid var(--border);color:var(--ink);opacity:0;pointer-events:none}
+#top-float.visible{opacity:1;pointer-events:auto}
+#top-float svg{width:20px;height:20px}
+
+/* ─────────────────────────────
+   MODALES LEGALES
+───────────────────────────── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:16px;max-width:640px;max-height:80vh;overflow-y:auto;padding:40px;position:relative}
+.modal-close{position:absolute;top:18px;right:18px;background:var(--surface2);border:none;width:34px;height:34px;border-radius:50%;color:var(--ink);cursor:pointer;font-size:15px}
+.modal-content h3{font-size:16px;margin:22px 0 8px;color:var(--ink)}
+.modal-content h3:first-child{margin-top:0}
+.modal-content p,.modal-content li{font-size:14px;color:var(--muted);margin-bottom:6px}
+.modal-content ul{padding-left:20px;margin-bottom:10px}
+
+/* ─────────────────────────────
+   COOKIE BANNER
+───────────────────────────── */
+#cookie-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:3000;
+  max-width:520px;margin:0 auto;background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;padding:22px 24px;box-shadow:0 20px 50px rgba(0,0,0,.45);
+  display:none;
+}
+#cookie-banner.active{display:block}
+#cookie-banner p{font-size:13.5px;color:var(--muted);line-height:1.5;margin-bottom:16px}
+#cookie-banner a{color:var(--mint);text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions .btn{flex:1;min-width:120px;padding:11px 16px;font-size:13.5px}
+#cookie-settings-link{cursor:pointer}
+
+/* ─────────────────────────────
+   REVEAL ON SCROLL
+───────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#inicio" class="logo">
+    <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="1.5" stroke="#0B0C10" stroke-width="1.8"/><line x1="3" y1="8" x2="21" y2="8" stroke="#0B0C10" stroke-width="1.6"/><line x1="8" y1="20" x2="16" y2="20" stroke="#0B0C10" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+    Escaparate <span>Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#precios">Precios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#preguntas">Preguntas</a>
+  </div>
+  <div class="nav-cta">
+    <a href="#contacto" class="btn btn-ghost">Contacto</a>
+    <a href="https://wa.me/34663543982?text=Hola%2C%20quiero%20pedir%20presupuesto%20para%20una%20web" class="btn btn-primary" data-ga-loc="nav">Pedir presupuesto</a>
+    <button class="ham" id="ham" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#servicios">Servicios</a>
+  <a href="#precios">Precios</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#preguntas">Preguntas</a>
+  <a href="#contacto">Contacto</a>
+  <a href="https://wa.me/34663543982?text=Hola%2C%20quiero%20pedir%20presupuesto%20para%20una%20web" class="btn btn-primary btn-block" data-ga-loc="nav-mobile">Pedir presupuesto</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="inicio" style="padding:0">
+<div id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Diseño &amp; desarrollo web</div>
+      <h1>Tu negocio local, con la <em>web que se merece.</em></h1>
+      <p class="lead">Páginas web a medida para peluquerías, restaurantes, clínicas y tiendas. Sin plantillas, rápidas de verdad y pensadas para que Google te encuentre en tu ciudad.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/34663543982?text=Hola%2C%20quiero%20pedir%20presupuesto%20para%20una%20web" class="btn btn-primary" data-ga-loc="hero">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.03.79.81-2.95-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+          Pedir presupuesto por WhatsApp
+        </a>
+        <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>5–7 días</b><span>de entrega media</span></div>
+        <div><b>100%</b><span>diseño a medida</span></div>
+        <div><b>SEO local</b><span>incluido siempre</span></div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="browser-mock">
+        <div class="browser-bar">
+          <span class="browser-dot" style="background:#ff5f57"></span>
+          <span class="browser-dot" style="background:#febc2e"></span>
+          <span class="browser-dot" style="background:#28c840"></span>
+          <span class="browser-url">barberia-galdakao.html</span>
+        </div>
+        <div class="browser-frame-wrap">
+          <div class="mock-preview">
+            <div class="mock-nav"><b>Barbería Zamakoa</b><span></span></div>
+            <div class="mock-hero"><i></i><i></i><em></em></div>
+          </div>
+        </div>
+      </div>
+      <div class="browser-caption">
+        <span>Proyecto real, en producción</span>
+        <a href="barberia-galdakao.html" target="_blank" rel="noopener">Ver web completa →</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div id="trust">
+  <div class="wrap trust-row">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Diseño 100% a medida, sin plantillas</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Optimizada para móvil y velocidad</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> SEO local desde el primer día</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Presupuesto sin compromiso</div>
+  </div>
+</div>
+
+<!-- ── SERVICIOS ── -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Por qué</div>
+      <h2>Una web de verdad, no una tarjeta de visita digital</h2>
+      <p>La mayoría de negocios locales pierden clientes por tener una web lenta, anticuada o que simplemente no aparece en Google. Así lo solucionamos.</p>
+    </div>
+    <div class="cards-4">
+      <div class="card reveal">
+        <div class="card-icon icon-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></div>
+        <h3>Diseño a medida</h3>
+        <p>Cada web se diseña desde cero para tu marca, tus colores y tu forma de trabajar. Nada de plantillas que se repiten en mil negocios más.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon icon-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>SEO local</h3>
+        <p>Estructura, textos y datos preparados para que aparezcas en Google y Google Maps cuando alguien busque tu servicio en tu ciudad.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon icon-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3>Velocidad real</h3>
+        <p>Código ligero y sin florituras innecesarias: páginas que cargan en segundo y medio, incluso con conexión móvil.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon icon-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Contacto que convierte</h3>
+        <p>Botón de WhatsApp, formulario y reservas online integradas: que un cliente pueda contactarte en dos toques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRECIOS ── -->
+<section id="precios" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Precios</div>
+      <h2>Planes claros, sin sorpresas</h2>
+      <p>Precios orientativos de salida. El presupuesto final se ajusta al alcance real de tu proyecto — siempre cerrado antes de empezar.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan reveal">
+        <h3>Escaparate</h3>
+        <p class="plan-desc">Ideal para negocios pequeños que necesitan presencia online ya.</p>
+        <div class="price">100€<span> desde</span></div>
+        <p class="price-note">Página única · entrega en 5 días</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Diseño a medida (1 página)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Botón de WhatsApp y mapa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> SEO on-page básico</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Optimizada para móvil</li>
+        </ul>
+        <a href="https://wa.me/34663543982?text=Hola%2C%20me%20interesa%20el%20plan%20Escaparate" class="btn btn-ghost btn-block" data-ga-loc="precios-escaparate">Elegir plan</a>
+      </div>
+
+      <div class="plan featured reveal">
+        <div class="plan-badge">Más elegido</div>
+        <h3>Negocio</h3>
+        <p class="plan-desc">La opción completa para la mayoría de negocios locales.</p>
+        <div class="price">200€<span> desde</span></div>
+        <p class="price-note">Varias secciones · entrega en 7–10 días</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Inicio, servicios, sobre nosotros y contacto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Galería de fotos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> SEO local avanzado + datos para Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Integración con Google Maps</li>
+        </ul>
+        <a href="https://wa.me/34663543982?text=Hola%2C%20me%20interesa%20el%20plan%20Negocio" class="btn btn-primary btn-block" data-ga-loc="precios-negocio">Elegir plan</a>
+      </div>
+
+      <div class="plan reveal">
+        <h3>Reservas Pro</h3>
+        <p class="plan-desc">Cuando necesitas que la web trabaje sola por ti.</p>
+        <div class="price">300€<span> desde</span></div>
+        <p class="price-note">Todo lo anterior + reservas online</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Todo lo del plan Negocio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Citas o reservas online integradas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Analítica de visitas (GA4)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Banner de cookies RGPD</li>
+        </ul>
+        <a href="https://wa.me/34663543982?text=Hola%2C%20me%20interesa%20el%20plan%20Reservas%20Pro" class="btn btn-ghost btn-block" data-ga-loc="precios-pro">Elegir plan</a>
+      </div>
+    </div>
+    <p class="pricing-note">Dominio y hosting no incluidos (te asesoro para elegirlos). Mantenimiento y cambios posteriores: desde 25€/mes, opcional.</p>
+  </div>
+</section>
+
+<!-- ── PROCESO ── -->
+<section id="proceso">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Cómo trabajamos</div>
+      <h2>De la idea a tu web publicada</h2>
+      <p>Un proceso simple, sin tecnicismos, para que sepas en todo momento en qué punto está tu proyecto.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">1</div>
+        <h3>Brief y objetivos</h3>
+        <p>Una llamada o chat de 15 minutos para entender tu negocio, tus clientes y qué necesitas que haga la web.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">2</div>
+        <h3>Diseño</h3>
+        <p>Te propongo una dirección visual acorde a tu marca en 2–3 días, antes de escribir una sola línea de código.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">3</div>
+        <h3>Desarrollo</h3>
+        <p>Programo la web a medida, cuidando velocidad y SEO desde el primer momento, no como un añadido de última hora.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">4</div>
+        <h3>Lanzamiento</h3>
+        <p>Te acompaño con el dominio y el hosting, publicamos y reviso contigo los primeros ajustes tras el lanzamiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="proyectos" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Proyectos</div>
+      <h2>Trabajos reales, en producción</h2>
+      <p>Nada de maquetas: esta es una vista en directo de una web publicada.</p>
+    </div>
+
+    <div class="portfolio-grid reveal">
+      <div>
+        <div class="browser-mock">
+          <div class="browser-bar">
+            <span class="browser-dot" style="background:#ff5f57"></span>
+            <span class="browser-dot" style="background:#febc2e"></span>
+            <span class="browser-dot" style="background:#28c840"></span>
+            <span class="browser-url">barberia-galdakao.html</span>
+          </div>
+          <div class="browser-frame-wrap">
+            <div class="mock-preview">
+              <div class="mock-nav"><b>Barbería Zamakoa</b><span></span></div>
+              <div class="mock-hero"><i></i><i></i><em></em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-copy">
+        <span class="tag">Barbería · Galdakao</span>
+        <h3>Barbería Zamakoa</h3>
+        <p>Web completa para una barbería exclusiva para hombre en Galdakao (Bizkaia), con reservas online integradas y ficha optimizada para búsquedas locales.</p>
+        <ul class="portfolio-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Reservas online integradas con Cal.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Datos estructurados (Schema.org) para Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Imagen principal optimizada para carga rápida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Banner de cookies conforme a RGPD</li>
+        </ul>
+        <a href="barberia-galdakao.html" target="_blank" rel="noopener" class="btn btn-primary" data-ga-loc="portfolio">Ver web completa</a>
+      </div>
+    </div>
+
+    <div class="soon-card reveal">
+      <b>Tu negocio podría estar aquí</b>
+      Cada proyecto nuevo se suma a este apartado en cuanto se publica.
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="preguntas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2>Todo lo que sueles preguntarme</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">¿Cuánto tarda en estar lista mi web? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>Depende del plan: una página tipo Escaparate suele estar en 5 días, y una web completa con varias secciones entre 7 y 10 días desde que recibo los textos y fotos.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Necesito tener ya dominio y hosting contratados? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>No hace falta. Si no los tienes, te asesoro para elegir el dominio y el hosting más adecuados según tu presupuesto y necesidades.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo pedir cambios después de la entrega? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>Sí. Cada proyecto incluye una ronda de ajustes tras la entrega, y después ofrezco mantenimiento mensual opcional para cambios de textos, fotos o pequeñas mejoras.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Las webs están optimizadas para que me encuentren en Google? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>Sí, el SEO local (título, descripción, datos estructurados y velocidad de carga) se trabaja desde el primer día, no como un extra aparte.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Trabajas con cualquier tipo de negocio local? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>Sí: peluquerías y barberías, restaurantes, clínicas, gimnasios, tiendas, talleres... cualquier negocio con clientes en una zona concreta se beneficia de una buena web local.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué necesito enviarte para empezar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="faq-a"><p>Con tu logo (si lo tienes), unas fotos del negocio y los textos básicos (servicios, horarios, dirección) ya puedo empezar a diseñar. Si te falta algo, te ayudo a resolverlo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ── -->
+<section id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <div class="eyebrow">Contacto</div>
+      <h2>Hablemos de tu proyecto</h2>
+      <p>Cuéntame sobre tu negocio y te respondo con una propuesta y un precio cerrado, normalmente en menos de 24 horas.</p>
+      <div class="contact-methods">
+        <a href="https://wa.me/34663543982?text=Hola%2C%20quiero%20pedir%20presupuesto%20para%20una%20web" class="contact-method" data-ga-loc="contacto-whatsapp">
+          <span class="ci icon-mint"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.03.79.81-2.95-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg></span>
+          <div><b>WhatsApp</b><span>+34 663 54 39 82</span></div>
+        </a>
+        <a href="mailto:gaby.prisecaru.trabajo@gmail.com" class="contact-method" data-ga-loc="contacto-email">
+          <span class="ci icon-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><b>Email</b><span>gaby.prisecaru.trabajo@gmail.com</span></div>
+        </a>
+        <a href="tel:+34663543982" class="contact-method" data-ga-loc="contacto-telefono">
+          <span class="ci icon-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+          <div><b>Teléfono</b><span>663 54 39 82</span></div>
+        </a>
+      </div>
+    </div>
+
+    <form class="form-box reveal" id="contactForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="f-nombre">Tu nombre</label>
+          <input type="text" id="f-nombre" required placeholder="Nombre y apellidos"/>
+        </div>
+        <div class="field">
+          <label for="f-negocio">Tu negocio</label>
+          <input type="text" id="f-negocio" required placeholder="Nombre del negocio"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-telefono">Teléfono</label>
+          <input type="tel" id="f-telefono" required placeholder="600 000 000"/>
+        </div>
+        <div class="field">
+          <label for="f-plan">Plan que te interesa</label>
+          <select id="f-plan">
+            <option>Escaparate (100€)</option>
+            <option selected>Negocio (200€)</option>
+            <option>Reservas Pro (300€)</option>
+            <option>No lo tengo claro todavía</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-mensaje">Cuéntame sobre tu negocio</label>
+        <textarea id="f-mensaje" placeholder="Tipo de negocio, ciudad, qué te gustaría que tuviera la web..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Enviar por WhatsApp</button>
+      <p class="form-note">Al enviar, se abrirá WhatsApp con tu mensaje ya redactado. No se guarda ningún dato en este sitio.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="#inicio" class="logo" style="font-size:17px">
+        <span class="logo-mark" style="width:28px;height:28px"><svg viewBox="0 0 24 24" fill="none" style="width:15px;height:15px"><rect x="3" y="4" width="18" height="13" rx="1.5" stroke="#0B0C10" stroke-width="1.8"/><line x1="3" y1="8" x2="21" y2="8" stroke="#0B0C10" stroke-width="1.6"/><line x1="8" y1="20" x2="16" y2="20" stroke="#0B0C10" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Escaparate <span>Digital</span>
+      </a>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Escaparate Digital. Todos los derechos reservados.</span>
+      <div class="footer-legal">
+        <a onclick="openModal('modal-legal')">Aviso legal</a>
+        <a onclick="openModal('modal-privacidad')">Privacidad</a>
+        <a onclick="openModal('modal-cookies')">Cookies</a>
+        <a id="cookie-settings-link" onclick="localStorage.removeItem('cookie_consent');document.getElementById('cookie-banner').classList.add('active')">Configurar cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── FLOATING BUTTONS ── -->
+<a href="https://wa.me/34663543982?text=Hola%2C%20quiero%20pedir%20presupuesto%20para%20una%20web" class="float-btn" id="wa-float" aria-label="Escribir por WhatsApp" data-ga-loc="float">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.03.79.81-2.95-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+</a>
+<button class="float-btn" id="top-float" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ── COOKIE BANNER ── -->
+<div id="cookie-banner">
+  <p>Usamos cookies propias y de análisis (Google Analytics) para entender cómo se usa esta web. Podés aceptarlas, rechazarlas o leer más en la <a onclick="openModal('modal-cookies')">política de cookies</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost" onclick="setCookieConsent(false)">Rechazar</button>
+    <button class="btn btn-primary" onclick="setCookieConsent(true)">Aceptar</button>
+  </div>
+</div>
+
+<!-- ── MODAL COOKIES ── -->
+<div class="modal-overlay" id="modal-cookies" onclick="closeModal(this)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(document.getElementById('modal-cookies'))">✕</button>
+    <h2>Política de Cookies</h2>
+    <div class="modal-content">
+      <h3>1. Qué son las cookies</h3>
+      <p>Son pequeños archivos que se guardan en tu navegador para recordar tus preferencias o analizar el uso del sitio.</p>
+      <h3>2. Cookies que usamos</h3>
+      <ul>
+        <li><strong>Técnicas (siempre activas):</strong> recuerdan tu elección sobre este mismo aviso de cookies.</li>
+        <li><strong>Análisis (Google Analytics, opcionales):</strong> nos ayudan a saber cuántas visitas recibe la web y qué páginas se ven más. Solo se activan si aceptás.</li>
+      </ul>
+      <h3>3. Gestionar tu elección</h3>
+      <p>Podés cambiar tu decisión en cualquier momento borrando las cookies del navegador o volviendo a cargar la web tras borrar los datos del sitio.</p>
+      <h3>4. Más información</h3>
+      <p>Google explica el uso de datos de Analytics en <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL AVISO LEGAL ── -->
+<div class="modal-overlay" id="modal-legal" onclick="closeModal(this)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(document.getElementById('modal-legal'))">✕</button>
+    <h2>Aviso Legal</h2>
+    <div class="modal-content">
+      <!-- ⚠️ REEMPLAZAR con tus datos fiscales reales (nombre/razón social, NIF, domicilio) cuando los tengas -->
+      <h3>1. Titular</h3>
+      <ul>
+        <li><strong>Nombre comercial:</strong> Escaparate Digital</li>
+        <li><strong>Contacto:</strong> gaby.prisecaru.trabajo@gmail.com · 663 54 39 82</li>
+      </ul>
+      <h3>2. Objeto</h3>
+      <p>El presente Aviso Legal regula el acceso y uso de este sitio web. El acceso implica la aceptación plena de las presentes condiciones.</p>
+      <h3>3. Propiedad intelectual</h3>
+      <p>Los contenidos de este sitio web (textos, diseño, código) son propiedad de Escaparate Digital. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+      <h3>4. Legislación aplicable</h3>
+      <p>Este Aviso Legal se rige por la legislación española vigente.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL PRIVACIDAD ── -->
+<div class="modal-overlay" id="modal-privacidad" onclick="closeModal(this)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(document.getElementById('modal-privacidad'))">✕</button>
+    <h2>Política de Privacidad</h2>
+    <div class="modal-content">
+      <h3>1. Responsable del tratamiento</h3>
+      <p>Escaparate Digital. Contacto: gaby.prisecaru.trabajo@gmail.com.</p>
+      <h3>2. Datos que recopilamos</h3>
+      <p>El formulario de contacto de esta web no envía datos a ningún servidor: al pulsar "Enviar" se abre WhatsApp con el mensaje redactado por ti, y los datos solo se comparten si tú decides enviarlos por esa vía.</p>
+      <h3>3. Finalidad</h3>
+      <p>Los datos que compartas por WhatsApp, email o teléfono se usan exclusivamente para responder a tu solicitud de presupuesto o información.</p>
+      <h3>4. Derechos del usuario</h3>
+      <p>Puedes ejercer tus derechos de acceso, rectificación o supresión escribiendo a gaby.prisecaru.trabajo@gmail.com.</p>
+      <h3>5. Legislación aplicable</h3>
+      <p>Esta política se rige por el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── SCROLL AL INICIO AL RECARGAR
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── MODALES LEGALES
+function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(el){el.classList.remove('active');document.body.style.overflow=''}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m));
+});
+
+// ── COOKIES / GOOGLE ANALYTICS
+function loadGoogleAnalytics(){
+  if (window.gaLoaded) return;
+  window.gaLoaded = true;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', window.GA_MEASUREMENT_ID);
+}
+
+function setCookieConsent(accepted){
+  localStorage.setItem('cookie_consent', accepted ? 'accepted' : 'rejected');
+  document.getElementById('cookie-banner').classList.remove('active');
+  if (accepted) loadGoogleAnalytics();
+}
+
+(function initCookieConsent(){
+  const consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGoogleAnalytics(); return; }
+  if (consent === 'rejected') return;
+  document.getElementById('cookie-banner').classList.add('active');
+})();
+
+// ── NAV SCROLL
+const nav = document.getElementById('nav');
+const ham = document.getElementById('ham');
+const mobileNav = document.getElementById('mobileNav');
+const topFloat = document.getElementById('top-float');
+const NAV_H = 72;
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  topFloat.classList.toggle('visible', window.scrollY > 700);
+}, { passive: true });
+
+// ── HAMBURGER
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+function closeMenu(){ham.classList.remove('open');mobileNav.classList.remove('open')}
+
+// ── SMOOTH SCROLL EN ANCLAS
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - NAV_H;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    closeMenu();
+  });
+});
+
+// ── FAQ ACORDEÓN
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+// ── FORMULARIO → WHATSAPP
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const nombre = document.getElementById('f-nombre').value.trim();
+  const negocio = document.getElementById('f-negocio').value.trim();
+  const telefono = document.getElementById('f-telefono').value.trim();
+  const plan = document.getElementById('f-plan').value;
+  const mensaje = document.getElementById('f-mensaje').value.trim();
+
+  let text = `Hola, soy ${nombre} de ${negocio}.\nMe interesa el plan: ${plan}.\nMi teléfono: ${telefono}.`;
+  if (mensaje) text += `\n\n${mensaje}`;
+
+  window.open(`https://wa.me/34663543982?text=${encodeURIComponent(text)}`, '_blank');
+});
+
+// ── REVEALS
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0 });
+reveals.forEach(el => revealObs.observe(el));
+setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 400);
+
+// ── SEGUIMIENTO DE CLICS CLAVE (placeholder, activar con Analytics si se añade)
+function trackEvent(name, params){ if (typeof gtag === 'function') gtag('event', name, params); }
+document.addEventListener('click', e => {
+  const link = e.target.closest('a[href]');
+  if (!link) return;
+  const loc = link.dataset.gaLoc;
+  if (!loc) return;
+  const href = link.getAttribute('href');
+  if (href.startsWith('https://wa.me/')) trackEvent('whatsapp_click', { location: loc });
+  else if (href.startsWith('tel:')) trackEvent('phone_click', { location: loc });
+  else if (href.startsWith('mailto:')) trackEvent('email_click', { location: loc });
+});
+</script>
+</body>
+</html>
