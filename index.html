@@ -242,16 +242,9 @@ section{padding:110px 0}
 .browser-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:var(--muted2)}
 .browser-caption a{color:var(--mint);font-weight:600}
 
-/* Maqueta estática (no un iframe en vivo): así la web de la agencia no carga
+/* Captura estática real (no un iframe en vivo): así la web de la agencia no carga
    por duplicado las fuentes, imágenes y el script de Cal.com de la web de ejemplo */
-.mock-preview{position:absolute;inset:0;padding:6%;display:flex;flex-direction:column;gap:6%;font-family:'Playfair Display',serif}
-.mock-nav{display:flex;justify-content:space-between;align-items:center}
-.mock-nav b{color:#1B3A6B;font-size:1.1em}
-.mock-nav span{width:60%;height:8px;border-radius:4px;background:#1B3A6B;opacity:.15}
-.mock-hero{flex:1;border-radius:8px;background:linear-gradient(135deg,#1B3A6B,#254E96);display:flex;flex-direction:column;justify-content:center;padding:8%;gap:10px}
-.mock-hero i{display:block;height:14px;border-radius:4px;background:rgba(255,255,255,.9);width:70%}
-.mock-hero i:nth-child(2){width:45%;background:rgba(255,255,255,.6)}
-.mock-hero em{display:inline-block;margin-top:6px;width:34%;height:20px;border-radius:999px;background:#C41C00;font-style:normal}
+.browser-preview-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 
 /* ─────────────────────────────
    TRUST BAR
@@ -500,10 +493,7 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
           <span class="browser-url">barberiazamakoa.com</span>
         </div>
         <div class="browser-frame-wrap">
-          <div class="mock-preview">
-            <div class="mock-nav"><b>Barbería Zamakoa</b><span></span></div>
-            <div class="mock-hero"><i></i><i></i><em></em></div>
-          </div>
+          <img class="browser-preview-img" src="img/barberia-zamakoa-preview.png" alt="Captura de la web de Barbería Zamakoa" loading="lazy">
         </div>
       </div>
       <div class="browser-caption">
@@ -666,10 +656,7 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
             <span class="browser-url">barberiazamakoa.com</span>
           </div>
           <div class="browser-frame-wrap">
-            <div class="mock-preview">
-              <div class="mock-nav"><b>Barbería Zamakoa</b><span></span></div>
-              <div class="mock-hero"><i></i><i></i><em></em></div>
-            </div>
+            <img class="browser-preview-img" src="img/barberia-zamakoa-preview.png" alt="Captura de la web de Barbería Zamakoa" loading="lazy">
           </div>
         </div>
       </div>
