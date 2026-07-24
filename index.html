@@ -242,6 +242,17 @@ section{padding:110px 0}
 .browser-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:var(--muted2)}
 .browser-caption a{color:var(--mint);font-weight:600}
 
+/* abanico de proyectos (hero) */
+.hero-fan{position:relative}
+.hero-fan .fan-front{position:relative;z-index:2}
+.hero-fan .fan-back{
+  position:absolute;top:-24px;right:-26px;width:76%;z-index:1;
+  transform:rotate(9deg);filter:saturate(.85) brightness(.82);
+  pointer-events:none;
+}
+.hero-fan .browser-caption{position:relative;z-index:2}
+.fan-soon{position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,.72);color:#fff;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+
 /* Captura estática real (no un iframe en vivo): así la web de la agencia no carga
    por duplicado las fuentes, imágenes y el script de Cal.com de la web de ejemplo */
 .browser-preview-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
@@ -485,8 +496,20 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
       </div>
     </div>
 
-    <div class="reveal">
-      <div class="browser-mock">
+    <div class="reveal hero-fan">
+      <div class="browser-mock fan-back">
+        <div class="browser-bar">
+          <span class="browser-dot" style="background:#ff5f57"></span>
+          <span class="browser-dot" style="background:#febc2e"></span>
+          <span class="browser-dot" style="background:#28c840"></span>
+          <span class="browser-url">txopibarber</span>
+        </div>
+        <div class="browser-frame-wrap">
+          <img class="browser-preview-img" src="img/txopibarber-preview.png" alt="Captura de la web de Txopibarber" loading="lazy">
+        </div>
+        <span class="fan-soon">Próximamente</span>
+      </div>
+      <div class="browser-mock fan-front">
         <div class="browser-bar">
           <span class="browser-dot" style="background:#ff5f57"></span>
           <span class="browser-dot" style="background:#febc2e"></span>
@@ -498,8 +521,8 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
         </div>
       </div>
       <div class="browser-caption">
-        <span>Proyecto real, en producción</span>
-        <a href="https://gabaywck.github.io/barberia-zamakoa/" target="_blank" rel="noopener">Ver web completa →</a>
+        <span>Proyectos reales, en producción</span>
+        <a href="https://gabaywck.github.io/barberia-zamakoa/" target="_blank" rel="noopener">Ver Zamakoa →</a>
       </div>
     </div>
   </div>
