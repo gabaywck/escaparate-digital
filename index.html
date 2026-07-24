@@ -247,8 +247,27 @@ section{padding:110px 0}
 .hero-particles{position:absolute;inset:-50px;width:calc(100% + 100px);height:calc(100% + 100px);z-index:0;pointer-events:none}
 .hero-float{position:relative;z-index:1;width:100%;animation:heroFloat 6s ease-in-out infinite}
 @keyframes heroFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1deg)}}
-.hero-link{position:absolute;left:10px;bottom:10px;z-index:2;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px}
 @media(prefers-reduced-motion:reduce){.hero-float{animation:none}}
+
+/* mockup genérico animado dentro del navegador flotante */
+.mock-page{position:absolute;inset:0;background:linear-gradient(160deg,#181920,#0b0c10);padding:9% 9% 11%;display:flex;flex-direction:column;gap:9%}
+.mock-nav{display:flex;align-items:center;gap:7%}
+.mock-logo{width:13%;height:14px;border-radius:4px;background:linear-gradient(90deg,var(--mint),var(--violet2))}
+.mock-navitem{width:9%;height:8px;border-radius:4px;margin-left:auto}
+.mock-navitem:first-of-type{margin-left:auto}
+.mock-hero-block{display:flex;flex-direction:column;gap:12px}
+.mock-line{height:15px;border-radius:5px}
+.mock-line-lg{width:72%}
+.mock-line-md{width:46%}
+.mock-btn{width:36%;height:28px;border-radius:999px;margin-top:6px}
+.mock-cards{display:flex;gap:6%;margin-top:auto}
+.mock-card{flex:1;height:56px;border-radius:10px}
+.mock-navitem,.mock-line,.mock-btn,.mock-card{
+  background:linear-gradient(90deg,rgba(255,255,255,.07) 25%,rgba(255,255,255,.16) 37%,rgba(255,255,255,.07) 63%);
+  background-size:400% 100%;animation:mockShimmer 2.4s ease-in-out infinite;
+}
+@keyframes mockShimmer{0%{background-position:100% 0}100%{background-position:0 0}}
+@media(prefers-reduced-motion:reduce){.mock-navitem,.mock-line,.mock-btn,.mock-card{animation:none;background-position:40% 0}}
 
 /* Captura estática real (no un iframe en vivo): así la web de la agencia no carga
    por duplicado las fuentes, imágenes y el script de Cal.com de la web de ejemplo */
@@ -517,11 +536,27 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
           <span class="browser-dot" style="background:#ff5f57"></span>
           <span class="browser-dot" style="background:#febc2e"></span>
           <span class="browser-dot" style="background:#28c840"></span>
-          <span class="browser-url">barberiazamakoa.com</span>
+          <span class="browser-url">tunegocio.com</span>
         </div>
         <div class="browser-frame-wrap">
-          <img class="browser-preview-img" src="img/barberia-zamakoa-preview.png" alt="Captura de la web de Barbería Zamakoa" loading="lazy">
-          <a href="https://gabaywck.github.io/barberia-zamakoa/" target="_blank" rel="noopener" class="hero-link" data-ga-loc="hero-gallery">Ver web real →</a>
+          <div class="mock-page" aria-hidden="true">
+            <div class="mock-nav">
+              <span class="mock-logo"></span>
+              <span class="mock-navitem" style="animation-delay:.1s"></span>
+              <span class="mock-navitem" style="animation-delay:.2s"></span>
+              <span class="mock-navitem" style="animation-delay:.3s"></span>
+            </div>
+            <div class="mock-hero-block">
+              <span class="mock-line mock-line-lg"></span>
+              <span class="mock-line mock-line-md" style="animation-delay:.15s"></span>
+              <span class="mock-btn" style="animation-delay:.3s"></span>
+            </div>
+            <div class="mock-cards">
+              <span class="mock-card" style="animation-delay:.1s"></span>
+              <span class="mock-card" style="animation-delay:.2s"></span>
+              <span class="mock-card" style="animation-delay:.3s"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
