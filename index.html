@@ -243,7 +243,7 @@ section{padding:110px 0}
 .browser-caption a{color:var(--mint);font-weight:600}
 
 /* galería giratoria de proyectos (hero) */
-.circular-gallery{position:relative;height:300px;perspective:1400px;margin:0 auto}
+.circular-gallery{position:relative;height:300px;perspective:1400px;margin:0 auto;cursor:pointer}
 .circular-gallery-track{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
 .cg-item{
   position:absolute;top:50%;left:50%;width:340px;margin-left:-170px;margin-top:-127px;
@@ -1048,7 +1048,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   window.open(`https://wa.me/34663543982?text=${encodeURIComponent(text)}`, '_blank');
 });
 
-// ── GALERÍA GIRATORIA (hero)
+// ── GALERÍA GIRATORIA (hero) — sigue al ratón / dedo
 (() => {
   const track = document.getElementById('heroGalleryTrack');
   if (!track) return;
@@ -1058,11 +1058,14 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let radius = window.innerWidth <= 640 ? 200 : 300;
   let rotation = 0;
-  let paused = false;
+  let steer = 0, steerTarget = 0;   // giro extra que sigue al puntero
+  let tilt = 0, tiltTarget = 0;     // inclinación sutil según altura del puntero
+  let hovering = false;
 
   const render = () => {
+    track.style.transform = `rotateX(${tilt}deg)`;
     items.forEach((el, i) => {
-      const angle = (360 / n) * i + rotation;
+      const angle = (360 / n) * i + rotation + steer;
       const norm = Math.abs((((angle % 360) + 360) % 360) > 180 ? 360 - (((angle % 360) + 360) % 360) : (((angle % 360) + 360) % 360));
       el.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
       el.style.zIndex = norm < 90 ? 2 : 1;
@@ -1070,20 +1073,32 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     });
   };
 
-  window.addEventListener('resize', () => { radius = window.innerWidth <= 640 ? 200 : 300; render(); });
-  gallery.addEventListener('mouseenter', () => paused = true);
-  gallery.addEventListener('mouseleave', () => paused = false);
-  gallery.addEventListener('touchstart', () => paused = true, { passive: true });
-  gallery.addEventListener('touchend', () => paused = false, { passive: true });
+  const steerFromPointer = (clientX, clientY) => {
+    const rect = gallery.getBoundingClientRect();
+    const fx = Math.max(-1, Math.min(1, ((clientX - rect.left) / rect.width) * 2 - 1));
+    const fy = Math.max(-1, Math.min(1, ((clientY - rect.top) / rect.height) * 2 - 1));
+    steerTarget = fx * 75;
+    tiltTarget = fy * -8;
+  };
+  const release = () => { hovering = false; steerTarget = 0; tiltTarget = 0; };
+
+  gallery.addEventListener('mouseenter', () => hovering = true);
+  gallery.addEventListener('mousemove', e => steerFromPointer(e.clientX, e.clientY));
+  gallery.addEventListener('mouseleave', release);
+  gallery.addEventListener('touchstart', e => { hovering = true; if (e.touches[0]) steerFromPointer(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  gallery.addEventListener('touchmove', e => { if (e.touches[0]) steerFromPointer(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  gallery.addEventListener('touchend', release);
+  window.addEventListener('resize', () => { radius = window.innerWidth <= 640 ? 200 : 300; });
 
   render();
-  if (!reduceMotion) {
-    const tick = () => {
-      if (!paused) { rotation += 0.15; render(); }
-      requestAnimationFrame(tick);
-    };
+  const tick = () => {
+    if (!reduceMotion && !hovering) rotation += 0.15;
+    steer += (steerTarget - steer) * 0.08;
+    tilt += (tiltTarget - tilt) * 0.08;
+    render();
     requestAnimationFrame(tick);
-  }
+  };
+  requestAnimationFrame(tick);
 })();
 
 // ── REVEALS
