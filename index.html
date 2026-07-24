@@ -242,16 +242,20 @@ section{padding:110px 0}
 .browser-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:var(--muted2)}
 .browser-caption a{color:var(--mint);font-weight:600}
 
-/* abanico de proyectos (hero) */
-.hero-fan{position:relative}
-.hero-fan .fan-front{position:relative;z-index:2}
-.hero-fan .fan-back{
-  position:absolute;top:-24px;right:-26px;width:76%;z-index:1;
-  transform:rotate(9deg);filter:saturate(.85) brightness(.82);
-  pointer-events:none;
+/* galería giratoria de proyectos (hero) */
+.circular-gallery{position:relative;height:300px;perspective:1400px;margin:0 auto}
+.circular-gallery-track{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
+.cg-item{
+  position:absolute;top:50%;left:50%;width:340px;margin-left:-170px;margin-top:-127px;
+  backface-visibility:hidden;transition:opacity .3s linear;
 }
-.hero-fan .browser-caption{position:relative;z-index:2}
-.fan-soon{position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,.72);color:#fff;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.cg-item .browser-mock{transform:none;cursor:pointer}
+.cg-link{position:absolute;left:10px;bottom:10px;z-index:2;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px}
+.cg-link.is-soon{opacity:.75;pointer-events:none}
+@media(max-width:640px){
+  .circular-gallery{height:236px}
+  .cg-item{width:250px;margin-left:-125px;margin-top:-95px}
+}
 
 /* Captura estática real (no un iframe en vivo): así la web de la agencia no carga
    por duplicado las fuentes, imágenes y el script de Cal.com de la web de ejemplo */
@@ -496,34 +500,40 @@ footer{padding:50px 0 30px;border-top:1px solid var(--border)}
       </div>
     </div>
 
-    <div class="reveal hero-fan">
-      <div class="browser-mock fan-back">
-        <div class="browser-bar">
-          <span class="browser-dot" style="background:#ff5f57"></span>
-          <span class="browser-dot" style="background:#febc2e"></span>
-          <span class="browser-dot" style="background:#28c840"></span>
-          <span class="browser-url">txopibarber</span>
+    <div class="reveal">
+      <div class="circular-gallery" id="heroGallery">
+        <div class="circular-gallery-track" id="heroGalleryTrack">
+          <div class="cg-item">
+            <div class="browser-mock">
+              <div class="browser-bar">
+                <span class="browser-dot" style="background:#ff5f57"></span>
+                <span class="browser-dot" style="background:#febc2e"></span>
+                <span class="browser-dot" style="background:#28c840"></span>
+                <span class="browser-url">barberiazamakoa.com</span>
+              </div>
+              <div class="browser-frame-wrap">
+                <img class="browser-preview-img" src="img/barberia-zamakoa-preview.png" alt="Captura de la web de Barbería Zamakoa" loading="lazy">
+                <a href="https://gabaywck.github.io/barberia-zamakoa/" target="_blank" rel="noopener" class="cg-link" data-ga-loc="hero-gallery">Ver Zamakoa →</a>
+              </div>
+            </div>
+          </div>
+          <div class="cg-item">
+            <div class="browser-mock">
+              <div class="browser-bar">
+                <span class="browser-dot" style="background:#ff5f57"></span>
+                <span class="browser-dot" style="background:#febc2e"></span>
+                <span class="browser-dot" style="background:#28c840"></span>
+                <span class="browser-url">txopibarber</span>
+              </div>
+              <div class="browser-frame-wrap">
+                <img class="browser-preview-img" src="img/txopibarber-preview.png" alt="Captura de la web de Txopibarber" loading="lazy">
+                <span class="cg-link is-soon">Próximamente</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="browser-frame-wrap">
-          <img class="browser-preview-img" src="img/txopibarber-preview.png" alt="Captura de la web de Txopibarber" loading="lazy">
-        </div>
-        <span class="fan-soon">Próximamente</span>
       </div>
-      <div class="browser-mock fan-front">
-        <div class="browser-bar">
-          <span class="browser-dot" style="background:#ff5f57"></span>
-          <span class="browser-dot" style="background:#febc2e"></span>
-          <span class="browser-dot" style="background:#28c840"></span>
-          <span class="browser-url">barberiazamakoa.com</span>
-        </div>
-        <div class="browser-frame-wrap">
-          <img class="browser-preview-img" src="img/barberia-zamakoa-preview.png" alt="Captura de la web de Barbería Zamakoa" loading="lazy">
-        </div>
-      </div>
-      <div class="browser-caption">
-        <span>Proyectos reales, en producción</span>
-        <a href="https://gabaywck.github.io/barberia-zamakoa/" target="_blank" rel="noopener">Ver Zamakoa →</a>
-      </div>
+      <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--muted2)">Proyectos reales · gira para verlos</p>
     </div>
   </div>
 </div>
@@ -1037,6 +1047,43 @@ document.getElementById('contactForm').addEventListener('submit', e => {
 
   window.open(`https://wa.me/34663543982?text=${encodeURIComponent(text)}`, '_blank');
 });
+
+// ── GALERÍA GIRATORIA (hero)
+(() => {
+  const track = document.getElementById('heroGalleryTrack');
+  if (!track) return;
+  const items = Array.from(track.querySelectorAll('.cg-item'));
+  const gallery = document.getElementById('heroGallery');
+  const n = items.length;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let radius = window.innerWidth <= 640 ? 200 : 300;
+  let rotation = 0;
+  let paused = false;
+
+  const render = () => {
+    items.forEach((el, i) => {
+      const angle = (360 / n) * i + rotation;
+      const norm = Math.abs((((angle % 360) + 360) % 360) > 180 ? 360 - (((angle % 360) + 360) % 360) : (((angle % 360) + 360) % 360));
+      el.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      el.style.opacity = Math.max(0.35, 1 - norm / 180);
+    });
+  };
+
+  window.addEventListener('resize', () => { radius = window.innerWidth <= 640 ? 200 : 300; render(); });
+  gallery.addEventListener('mouseenter', () => paused = true);
+  gallery.addEventListener('mouseleave', () => paused = false);
+  gallery.addEventListener('touchstart', () => paused = true, { passive: true });
+  gallery.addEventListener('touchend', () => paused = false, { passive: true });
+
+  render();
+  if (!reduceMotion) {
+    const tick = () => {
+      if (!paused) { rotation += 0.06; render(); }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+})();
 
 // ── REVEALS
 const reveals = document.querySelectorAll('.reveal');
