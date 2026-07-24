@@ -1154,8 +1154,8 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     h = canvas.height = rect.height * dpr;
     canvas.style.width = rect.width + 'px';
     canvas.style.height = rect.height + 'px';
-    const count = Math.round((rect.width * rect.height) / 9000);
-    particles = Array.from({ length: Math.min(60, Math.max(24, count)) }, () => ({
+    const count = Math.round((rect.width * rect.height) / 4500);
+    particles = Array.from({ length: Math.min(110, Math.max(45, count)) }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.25 * dpr,
