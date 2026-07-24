@@ -247,7 +247,7 @@ section{padding:110px 0}
 .circular-gallery-track{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
 .cg-item{
   position:absolute;top:50%;left:50%;width:340px;margin-left:-170px;margin-top:-127px;
-  backface-visibility:hidden;transition:opacity .3s linear;
+  transition:opacity .3s linear;
 }
 .cg-item .browser-mock{transform:none;cursor:pointer}
 .cg-link{position:absolute;left:10px;bottom:10px;z-index:2;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px}
@@ -1065,7 +1065,8 @@ document.getElementById('contactForm').addEventListener('submit', e => {
       const angle = (360 / n) * i + rotation;
       const norm = Math.abs((((angle % 360) + 360) % 360) > 180 ? 360 - (((angle % 360) + 360) % 360) : (((angle % 360) + 360) % 360));
       el.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-      el.style.opacity = Math.max(0.35, 1 - norm / 180);
+      el.style.zIndex = norm < 90 ? 2 : 1;
+      el.style.opacity = Math.max(0.55, 1 - norm / 180);
     });
   };
 
@@ -1078,7 +1079,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   render();
   if (!reduceMotion) {
     const tick = () => {
-      if (!paused) { rotation += 0.06; render(); }
+      if (!paused) { rotation += 0.15; render(); }
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
