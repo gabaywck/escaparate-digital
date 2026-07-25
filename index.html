@@ -272,15 +272,15 @@ section{padding:110px 0}
   .hero-badge--tl,.hero-badge--tr,.hero-badge--bl,.hero-badge--mid{display:none}
 }
 @media(max-width:640px){
-  .hero-badge{padding:7px 10px;gap:7px;right:0;bottom:-8px}
+  .hero-badge{padding:7px 10px;gap:7px;right:0;bottom:-8px;left:auto;top:auto}
   .hero-badge-icon{width:23px;height:23px}
   .hero-badge-icon svg{width:12px;height:12px}
   .hero-badge b{font-size:11px}
   .hero-badge span{font-size:9.5px}
-  .hero-badge--tl{left:0;top:-8px}
-  .hero-badge--tr{right:0;top:-8px}
-  .hero-badge--bl{left:0;bottom:-8px}
-  .hero-badge--mid{left:50%;margin-left:-68px;top:50%;margin-top:-22px}
+  .hero-badge--tl{left:0;top:-8px;right:auto;bottom:auto}
+  .hero-badge--tr{right:0;top:-8px;left:auto;bottom:auto}
+  .hero-badge--bl{left:0;bottom:-8px;right:auto;top:auto}
+  .hero-badge--mid{left:50%;margin-left:-68px;top:50%;margin-top:-22px;right:auto;bottom:auto}
 }
 @media(prefers-reduced-motion:reduce){.hero-badge{animation:none}}
 
